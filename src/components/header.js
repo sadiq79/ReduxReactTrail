@@ -7,8 +7,13 @@ import classNames from 'classNames'
 export default class header extends Component {
     constructor(props) {
         super();
-    
+        this.state ={
+            vPos:0,
+            mobileToggle:false
+        }
+    this.listenScrollEvent=this.listenScrollEvent.bind(this);
     }
+    
   render() {
     return (
         <header onScroll={this.listenScrollEvent} className={classNames({'scrollActive': this.state.vPos > 0, 'mobileNavActive': this.state.mobileToggle})}>
