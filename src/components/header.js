@@ -13,7 +13,23 @@ export default class header extends Component {
         }
     this.listenScrollEvent=this.listenScrollEvent.bind(this);
     }
-    
+    listenScrollEvent(event){
+        this.setState({
+            vPos: event.target.body.scrollTop
+        });
+    }
+    toggleMobileNav(){
+        this.setState({
+            mobileToggle= !this.state.mobileToggle
+        });
+    }
+    componentDidMount(){
+        window.addEventListener('scroll', this.listenScrollEvent);
+    }
+    componentWillUnmount(){
+        window.removeEventListener('scroll', this.listenScrollEvent)
+    }
+
   render() {
     return (
         <header onScroll={this.listenScrollEvent} className={classNames({'scrollActive': this.state.vPos > 0, 'mobileNavActive': this.state.mobileToggle})}>
