@@ -7,7 +7,7 @@ import classNames from 'classNames'
 export default class header extends Component {
     constructor(props) {
         super();
-        this.state ={
+        this.state = {
             vPos:0,
             mobileToggle:false
         }
@@ -20,7 +20,7 @@ export default class header extends Component {
     }
     toggleMobileNav(){
         this.setState({
-            mobileToggle= !this.state.mobileToggle
+            mobileToggle : !this.state.mobileToggle
         });
     }
     componentDidMount(){
